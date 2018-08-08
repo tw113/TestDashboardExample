@@ -1,0 +1,66 @@
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #056cb6;
+    background: whitesmoke;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
+.message-pane {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.results-pane {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.pic {
+    background-image: url("http://www.byui.edu/images/Branding/Logos/BYU-Idaho-Box-Blue.png");
+    background-size: cover;
+}
+
+.mat-header-cell {
+    padding: 0;
+    justify-content: center;
+    color: whitesmoke;
+    font-size: 16px;
+}
+
+.mat-cell {
+    padding: 0;
+    justify-content: center;
+    cursor: pointer;
+    border-right: solid 1px lightgray;
+}
+
+.mat-cell:last-child {
+    border: none;
+}
+
+.mat-header-row {
+    background: #056cb6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mat-row {
+    background: whitesmoke;
+}
+
+.mat-footer-row {
+    background: #056cb6;
+}
+
+.mat-footer-cell {
+    color: white;
+    text-align: center;
+}

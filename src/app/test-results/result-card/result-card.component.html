@@ -1,0 +1,29 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<div *ngIf="report.runResult == 'FAIL'">
+  <p style="color: #DB6E6E" *ngIf="report.messages.length > 0" matBadge={{report.messages.length}} matBadgeColor="warn" matBadgeOverlap="false">
+    {{report.runResult}}
+  </p>
+  <p style="color: #DB6E6E" *ngIf="report.messages.length == 0">
+    {{report.runResult}}
+  </p>
+</div>
+
+<div *ngIf="report.runResult == 'PASS'">
+  <p style="color: rgb(53, 201, 30)" *ngIf="report.messages.length > 0" matBadge={{report.messages.length}} matBadgeColor="warn" matBadgeOverlap="false">
+    <mat-icon>check_circle</mat-icon>
+  </p>
+  <p style="color: rgb(53, 201, 30)" *ngIf="report.messages.length == 0">
+    <mat-icon>check_circle</mat-icon>
+  </p>
+</div>
+
+<div *ngIf="report.runResult == 'WARNING'">
+    <p style="color: orange" *ngIf="report.messages.length > 0" matBadge={{report.messages.length}} matBadgeColor="warn" matBadgeOverlap="false">
+      {{report.runResult}}
+    </p>
+    <p style="color: orange" *ngIf="report.messages.length == 0">
+      {{report.runResult}}
+    </p>
+  </div>

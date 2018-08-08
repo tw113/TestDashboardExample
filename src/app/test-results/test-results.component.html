@@ -1,0 +1,38 @@
+<h1 class="title">LMS Data Test Results</h1>
+
+<div class="message-pane">
+  <mat-card style="position: sticky; top: 0;" *ngIf="clicked">
+    <mat-card-header>
+      <div mat-card-avatar class="pic"></div>
+      <mat-card-title>{{testClicked.system}}</mat-card-title>
+      <mat-card-subtitle>{{testClicked.method}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Time Elapsed: {{testClicked.elapsed}} ms</p>
+      <h3>Message(s)</h3>
+      <p *ngFor="let m of testClicked.messages">{{m}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="closeMessage()" mat-raised-button>close</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="results-pane">
+  <mat-table [dataSource]="data">
+    <ng-container matColumnDef="MethodTested">
+      <mat-header-cell *matHeaderCellDef>Method Tested</mat-header-cell>
+      <mat-cell *matCellDef="let result">{{result.method}}</mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        Passed: {{passCount}} | Failed: {{failCount}} | Warnings: {{warnCount}}
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container *ngFor="let v of columnsToDisplay | slice:1; let i = index" [matColumnDef]="v">
+      <mat-header-cell *matHeaderCellDef>{{v}}</mat-header-cell>
+      <mat-cell *matCellDef="let result" (click)="onClick(result.systems[i])"><result-card [report]="result.systems[i]"></result-card></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+    <mat-footer-row *matFooterRowDef="footerColumns"></mat-footer-row>
+  </mat-table>
+</div>
