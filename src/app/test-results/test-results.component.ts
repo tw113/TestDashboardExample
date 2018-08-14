@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TestRunReport } from '../shared/models/test-run-report.model';
-import { Method } from '../shared/models/method.model';
 import { GetResultsService } from '../shared/services/get-results.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { GetResultsService } from '../shared/services/get-results.service';
 export class TestResultsComponent implements OnInit {
   
   dateTimeRan: Date;
-  data: Array<Method>;
+  dataSource: any;
   columnsToDisplay = [];
   footerColumns = ["MethodTested"]
   clicked: boolean = false;
@@ -23,14 +22,14 @@ export class TestResultsComponent implements OnInit {
   constructor(private resultsService: GetResultsService) { }
 
   ngOnInit() {
-    this.data = this.resultsService.getTestResults();
+    this.dataSource = this.resultsService.getTestResults();
     this.dateTimeRan = new Date("2016-01-17T08:44:29+0100");
     this.columnsToDisplay.push("MethodTested");
-    for (let value of this.data[0].systems) {
+    for (let value of this.dataSource.data[0].systems) {
       this.columnsToDisplay.push(value.system);
     }
 
-    for (let method of this.data) {
+    for (let method of this.dataSource.data) {
       for(let system of method.systems) {
         if(system.runResult == "PASS") {
           this.passCount = this.passCount + 1;
@@ -52,5 +51,9 @@ export class TestResultsComponent implements OnInit {
 
   closeMessage() {
     this.clicked = false;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

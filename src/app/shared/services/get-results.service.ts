@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Method } from '../models/method.model';
+import { MatTableDataSource } from '../../../../node_modules/@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class GetResultsService {
   constructor() { }
 
   getTestResults() {
-    return DATA;
+    return new MatTableDataSource(DATA);
   }
 }
 

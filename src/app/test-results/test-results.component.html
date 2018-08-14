@@ -19,7 +19,10 @@
 </div>
 
 <div class="results-pane">
-  <mat-table [dataSource]="data">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="MethodTested">
       <mat-header-cell *matHeaderCellDef>Method Tested</mat-header-cell>
       <mat-cell *matCellDef="let result">{{result.method}}</mat-cell>
