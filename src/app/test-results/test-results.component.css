@@ -24,6 +24,23 @@
     margin: auto;
 }
 
+input {
+    font-size: 16px;
+    margin: 10px;
+    margin-left: 0;
+    padding: 10px;
+    padding-left: 0;
+    border: none;
+    background: whitesmoke;
+    border-bottom: solid 2px lightgrey;
+    outline: none;
+    transition: border-bottom 0.4s ease-in-out;
+}
+
+input:focus {
+    border-bottom: solid 2px #056cb6;
+}
+
 .pic {
     background-image: url("http://www.byui.edu/images/Branding/Logos/BYU-Idaho-Box-Blue.png");
     background-size: cover;

@@ -19,9 +19,9 @@
 </div>
 
 <div class="results-pane">
-  <mat-form-field>
+  <form autocomplete="off">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
+  </form>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="MethodTested">
       <mat-header-cell *matHeaderCellDef>Method Tested</mat-header-cell>
